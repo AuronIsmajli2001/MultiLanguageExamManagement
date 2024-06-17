@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MultiLanguageExamManagementSystem.Models.Dtos;
 using MultiLanguageExamManagementSystem.Models.Entities;
 
 namespace MultiLanguageExamManagementSystem.Data
@@ -16,6 +17,9 @@ namespace MultiLanguageExamManagementSystem.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<Country> Countries { get; set; }
         public DbSet<LocalizationResource> LocalizationResources { get; set; }
+        public DbSet<ExamRequest> ExamRequests { get; set; }
+        public DbSet<ExamResult> ExamResults { get; set; }
+        public DbSet<ExamResultDetail> ExamResultDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -56,22 +60,50 @@ namespace MultiLanguageExamManagementSystem.Data
                 .HasOne(e => e.Creator)
                 .WithMany(u => u.CreatedExams)
                 .HasForeignKey(e => e.CreatorId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<TakenExam>()
                 .HasOne(te => te.User)
                 .WithMany(u => u.TakenExams)
                 .HasForeignKey(te => te.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<TakenExam>()
                 .HasOne(te => te.Exam)
                 .WithMany(e => e.TakenExams)
                 .HasForeignKey(te => te.ExamId)
-                .OnDelete(DeleteBehavior.NoAction);
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<ExamRequest>()
+                .HasOne(er => er.User)
+                .WithMany(u => u.ExamRequests)
+                .HasForeignKey(er => er.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
 
+            modelBuilder.Entity<ExamRequest>()
+                .HasOne(er => er.Exam)
+                .WithMany(e => e.ExamRequests)
+                .HasForeignKey(er => er.ExamId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ExamRequest>()
+                .Property(er => er.Status)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (ExamRequestStatus)Enum.Parse(typeof(ExamRequestStatus), v));
+
+            modelBuilder.Entity<ExamResult>()
+                .HasOne(er => er.User)
+                .WithMany(u => u.ExamResults)
+                .HasForeignKey(er => er.UserId)
+                .OnDelete(DeleteBehavior.Restrict);
+
+            modelBuilder.Entity<ExamResult>()
+                .HasOne(er => er.Exam)
+                .WithMany(e => e.ExamResults)
+                .HasForeignKey(er => er.ExamId)
+                .OnDelete(DeleteBehavior.Restrict);
         }
-
     }
 }
+

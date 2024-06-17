@@ -1,4 +1,5 @@
-﻿using MultiLanguageExamManagementSystem.Models.Entities;
+﻿using MultiLanguageExamManagementSystem.Models.Dtos;
+using MultiLanguageExamManagementSystem.Models.Entities;
 
 public class User
 {
@@ -8,5 +9,7 @@ public class User
     public UserRole Role { get; set; }
     public ICollection<Exam> CreatedExams { get; set; }
     public ICollection<TakenExam> TakenExams { get; set; }
+    public ICollection<ExamRequest> ExamRequests { get; set; }
+    public ICollection<ExamResult> ExamResults { get; set; }
 }
 

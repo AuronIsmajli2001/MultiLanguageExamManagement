@@ -5777,11 +5777,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\AURON\\Desktop\\homeworkroni\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
+      "projectUniqueName": "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
       "projectName": "MultiLanguageExamManagementSystem",
-      "projectPath": "C:\\Users\\AURON\\Desktop\\homeworkroni\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
+      "projectPath": "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
       "packagesPath": "C:\\Users\\AURON\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\AURON\\Desktop\\homeworkroni\\MultiLanguageExamManagementSystem\\obj\\",
+      "outputPath": "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\AURON\\AppData\\Roaming\\NuGet\\NuGet.Config",

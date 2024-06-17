@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MultiLanguageExamManagementSystem.Data;
 
@@ -11,9 +12,11 @@ using MultiLanguageExamManagementSystem.Data;
 namespace MultiLanguageExamManagementSystem.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240616100220_AddCorrectAnswerToQuestion")]
+    partial class AddCorrectAnswerToQuestion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -81,65 +84,6 @@ namespace MultiLanguageExamManagementSystem.Migrations
                     b.HasIndex("QuestionId");
 
                     b.ToTable("ExamQuestions");
-                });
-
-            modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.ExamRequest", b =>
-                {
-                    b.Property<int>("ExamRequestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamRequestId"));
-
-                    b.Property<int>("ExamId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("RequestedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExamRequestId");
-
-                    b.HasIndex("ExamId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ExamRequests");
-                });
-
-            modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.ExamResult", b =>
-                {
-                    b.Property<int>("ExamResultId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExamResultId"));
-
-                    b.Property<DateTime>("CompletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("ExamId")
-                        .HasColumnType("int");
-
-                    b.Property<double>("Score")
-                        .HasColumnType("float");
-
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExamResultId");
-
-                    b.HasIndex("ExamId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("ExamResults");
                 });
 
             modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.Language", b =>
@@ -316,44 +260,6 @@ namespace MultiLanguageExamManagementSystem.Migrations
                     b.Navigation("Question");
                 });
 
-            modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.ExamRequest", b =>
-                {
-                    b.HasOne("Exam", "Exam")
-                        .WithMany("ExamRequests")
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("User", "User")
-                        .WithMany("ExamRequests")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Exam");
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.ExamResult", b =>
-                {
-                    b.HasOne("Exam", "Exam")
-                        .WithMany("ExamResults")
-                        .HasForeignKey("ExamId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("User", "User")
-                        .WithMany("ExamResults")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Exam");
-
-                    b.Navigation("User");
-                });
-
             modelBuilder.Entity("MultiLanguageExamManagementSystem.Models.Entities.Language", b =>
                 {
                     b.HasOne("MultiLanguageExamManagementSystem.Models.Entities.Country", "Country")
@@ -399,10 +305,6 @@ namespace MultiLanguageExamManagementSystem.Migrations
                 {
                     b.Navigation("ExamQuestions");
 
-                    b.Navigation("ExamRequests");
-
-                    b.Navigation("ExamResults");
-
                     b.Navigation("TakenExams");
                 });
 
@@ -414,10 +316,6 @@ namespace MultiLanguageExamManagementSystem.Migrations
             modelBuilder.Entity("User", b =>
                 {
                     b.Navigation("CreatedExams");
-
-                    b.Navigation("ExamRequests");
-
-                    b.Navigation("ExamResults");
 
                     b.Navigation("TakenExams");
                 });

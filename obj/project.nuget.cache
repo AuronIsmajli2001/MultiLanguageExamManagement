@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DXjTRuWi8kiDzu2GatdkrN67d/UJm0cXbU+NQCBOsPxZQkWYkcVCD59boXNLD3f35LaJH4I+2QtUUA+LBjxhug==",
+  "dgSpecHash": "FIwbKu5C3xXufJR/i7Yn0E3u5RBvGW2a/Is29/TMg6N+09FSphGgbS6FW1r96et3GOt09NgeGub0a7Wj826TpQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\AURON\\Desktop\\homeworkroni\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
+  "projectFilePath": "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\AURON\\.nuget\\packages\\automapper\\13.0.1\\automapper.13.0.1.nupkg.sha512",
     "C:\\Users\\AURON\\.nuget\\packages\\awssdk.core\\3.7.304.5\\awssdk.core.3.7.304.5.nupkg.sha512",

@@ -11,7 +11,7 @@ using Serilog;
 using Microsoft.AspNetCore.Hosting;
 using MultiLanguageExamManagementSystem.Helpers;
 
-//Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\Resources\\translation.json");
+Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS", "C:\\Users\\AURON\\Desktop\\Homework\\Homework2\\MultiLanguageExamManagementSystem\\MultiLanguageExamManagementSystem\\Resources\\translation.json");
 
 var builder = WebApplication.CreateBuilder(args);
 

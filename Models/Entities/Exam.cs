@@ -1,4 +1,5 @@
-﻿using MultiLanguageExamManagementSystem.Models.Entities;
+﻿using MultiLanguageExamManagementSystem.Models.Dtos;
+using MultiLanguageExamManagementSystem.Models.Entities;
 
 public class Exam
 {
@@ -9,4 +10,6 @@ public class Exam
     public User Creator { get; set; }
     public ICollection<ExamQuestion> ExamQuestions { get; set; }
     public ICollection<TakenExam> TakenExams { get; set; }
+    public ICollection<ExamRequest> ExamRequests { get; set; }
+    public ICollection<ExamResult> ExamResults { get; set; }
 }
